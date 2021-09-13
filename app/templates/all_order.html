@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="text-center">Orders Active - BUY</h1>
+    {% for order in orders %}
+        {% if order.active == True%}
+            {% if order.type == 'BUY' %}
+        <table class="table table-dark">
+          <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ order.user }}</td>
+              <td>{{ order.price }}</td>
+              <td>{{ order.quantity}}</td>
+              <td>{{ order.date}}</td>
+            </tr>
+          </tbody>
+        </table>
+            {% endif %}
+        {%endif%}
+    {% endfor %}
+
+    <h1 class="text-center">Orders Active - SELL</h1>
+     {% for order in orders %}
+        {% if order.active == True%}
+            {% if order.type == 'SELL' %}
+        <table class="table table-dark">
+          <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ order.user }}</td>
+              <td>{{ order.price }}</td>
+              <td>{{ order.quantity}}</td>
+              <td>{{ order.date}}</td>
+            </tr>
+          </tbody>
+        </table>
+            <br>
+            {% endif %}
+        {%endif%}
+    {% endfor %}
+
+{% endblock content %}

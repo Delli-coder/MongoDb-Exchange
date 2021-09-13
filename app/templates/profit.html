@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="text-center">Profit all users</h1>
+    {% for prof in profiles %}
+        <table class="table table-dark">
+          <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">BTC profit</th>
+                <th scope="col">CASH profit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ prof.user }}</td>
+              <td>{{ prof.btc_original - prof.btc_wallet }}</td>
+              <td>{{ 10000 - prof.cash_wallet}}</td>
+            </tr>
+          </tbody>
+        </table>
+            {% endif %}
+        {%endif%}
+    {% endfor %}
+{% endblock %}
